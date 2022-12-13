@@ -1,6 +1,6 @@
 export default function MainWrapper({ children }) {
     return (
-        <div className="relative z-0">
+        <div className="relative z-0 flex flex-row items-stretch w-full">
             {children}
         </div>
     )

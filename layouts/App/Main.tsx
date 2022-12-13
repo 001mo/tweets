@@ -1,5 +1,7 @@
 export default function App({ children }) {
     return (
-        <main>{children}</main>
+        <main className="grow-2">
+            {children}
+        </main>
     )
 }
