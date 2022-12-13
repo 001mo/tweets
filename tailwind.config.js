@@ -14,5 +14,16 @@ module.exports = {
       brand: ' #1DA1F2',
       ...colors
     },
+    extend: {
+      flexGrow: {
+        '2': 2
+      }
+    },
+    screens: {
+      sm: '500px',
+      md: '617px',
+      lg: '1005px',
+      xl: '1282px',
+    }
   },
 }
