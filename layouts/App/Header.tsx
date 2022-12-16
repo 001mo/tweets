@@ -15,30 +15,30 @@ export default function Header({ children, height }) {
     }, [windowSize])
 
     return (
-        <header role="banner" className="grow flex flex-col items-end relative z-30">
+        <header role="banner" className="sm:grow shrink-0 flex flex-col items-end relative z-30 bg-gray-300"> {/* (d) remove bg- class */}
             {windowSize.width >= 500 ?
-            <div style={{
-                backgroundColor: '#000',
-                width: innerBannerWidth + 'px',
-            }}>
-                <div className="fixed top-0 h-full z-0">
-                    <div
-                    className="h-full flex content-between"
-                    style={{
-                        backgroundColor: '#f00',    
-                        width: innerBannerWidth + 'px',
-                    }}>
-                        <div className="flex flex-col">
-                            {children}
-                        </div>
+                <div style={{
+                    backgroundColor: '#000',
+                    width: innerBannerWidth + 'px',
+                }}>
+                    <div className="fixed top-0 h-full z-0">
+                        <div
+                        className="h-full flex content-between"
+                        style={{
+                            backgroundColor: '#f00',    
+                            width: innerBannerWidth + 'px',
+                        }}>
+                            <div className="flex flex-col">
+                                {children}
+                            </div>
 
-                        {/* account dropdown */}
-                        <div>
+                            {/* account dropdown */}
+                            <div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             : <div style={{height}}></div> }
         </header>
     )

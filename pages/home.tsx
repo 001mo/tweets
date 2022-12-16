@@ -4,6 +4,8 @@ import Header from 'layouts/App/Header';
 import HeaderBar from 'layouts/App/Layers/HeaderBar';
 import Layers from 'layouts/App/Layers'; // (d) make pathes like Dropdown e.g <Dropdown.Header>
 import Main from 'layouts/App/Main';
+import MainContnet from 'layouts/App/Main/Content';
+import MainSideBar from 'layouts/App/Main/SideBar';
 import MainWrapper from 'layouts/App/MainWrapper';
 import BottomBar from 'layouts/App/Layers/BottomBar';
 
@@ -39,7 +41,12 @@ export default function App() {
                     
                 </Header>
                 <Main>
+                    <MainContnet>
 
+                    </MainContnet>
+                    <MainSideBar>
+                        
+                    </MainSideBar>
                 </Main>
             </MainWrapper>
         </Layout>
