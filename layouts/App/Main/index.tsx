@@ -1,24 +1,7 @@
-import { useState, useEffect } from "react";
-import useWindowSize from "hooks/useWindowSize";
-
 export default function App({ children }) {
-    const [wrapperWidth, setWrapperWidth] = useState(0);
-    const windowSize = useWindowSize();
-
-    useEffect(() => {
-        const scWidth = windowSize.width;
-        setWrapperWidth(() =>
-            scWidth >= 705 ? 600
-            : scWidth >= 1005 ? 920
-            : 0 
-        )
-    }, [windowSize]);
-
     return (
-        <main className="flex-1 lg:grow-2 xl:grow xl:shrink flex flex-col items-stretch lg:items-start">
-            <div
-            className="shrink flex-auto flex flex-col items-stretch"
-            style={windowSize.width >= 705 ? {width: wrapperWidth + 'px'} : {}}>
+        <main className="grow min-[500px]:max-[687px]:w-full min-[688px]:grow-2 shrink flex flex-col items-stretch min-[688px]:items-start bg-slate-900">
+            <div className="min-[688px]:w-[600px] min-[988px]:w-[920px] min-[1078px]:w-[990px]">
                 <div className="flex-auto flex flex-row items-stretch content-between w-full min-height-full">
                     {children}
                 </div>

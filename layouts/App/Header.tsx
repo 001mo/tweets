@@ -1,33 +1,17 @@
-import { useState, useEffect } from "react";
 import useWindowSize from "hooks/useWindowSize";
 
-export default function Header({ children, height }) {
-    const [innerBannerWidth, setInnerBannerWidth] = useState(0);
+export default function Header({ children }) {
     const windowSize = useWindowSize();
 
-    useEffect(() => {
-        const scWidth = windowSize.width;
-        setInnerBannerWidth(() =>
-            scWidth < 617 || (scWidth >= 1005 && scWidth < 1282) ? 68
-            : scWidth >= 617 && scWidth < 1005 ? 88
-            : scWidth >= 1282 ? 275 : 0
-        )
-    }, [windowSize])
-
     return (
-        <header role="banner" className="sm:grow shrink-0 flex flex-col items-end relative z-30 bg-gray-300"> {/* (d) remove bg- class */}
-            {windowSize.width >= 500 ?
-                <div style={{
-                    backgroundColor: '#000',
-                    width: innerBannerWidth + 'px',
-                }}>
+        <header role="banner" className="min-[500px]:grow min-[500px]:shrink-0 flex flex-col items-end bg-red-900"> {/* (d) remove bg- class */}
+            {windowSize.width < 500 ?
+                // works as a placeholder for absolute element "header" that's render under 500px 
+                <div style={{height: '53px'}}></div>
+            :
+                <div className="wrapper min-[500px]:w-[68px] min-[600px]:w-[88px] min-[1265px]:w-[275px]"> {/* (d) remove h-full and bg- class */}
                     <div className="fixed top-0 h-full z-0">
-                        <div
-                        className="h-full flex content-between"
-                        style={{
-                            backgroundColor: '#f00',    
-                            width: innerBannerWidth + 'px',
-                        }}>
+                        <div className="bg-red-500 wrapper h-full min-[500px]:w-[68px] min-[600px]:w-[88px] min-[1265px]:w-[275px]">  {/* (d) remove and bg- class */}
                             <div className="flex flex-col">
                                 {children}
                             </div>
@@ -39,7 +23,7 @@ export default function Header({ children, height }) {
                         </div>
                     </div>
                 </div>
-            : <div style={{height}}></div> }
+            }
         </header>
     )
 }

@@ -37,7 +37,7 @@ export default function App() {
                 </BottomBar>
             </Layers>
             <MainWrapper>
-                <Header height={headerHeight.current}>
+                <Header>
                     
                 </Header>
                 <Main>
