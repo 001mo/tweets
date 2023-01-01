@@ -2,7 +2,7 @@ import { SlOptions } from 'react-icons/sl';
 
 export default function Trending() {
     return (
-        <div className="wrapper rounded-2xl bg-gray-50 dark:bg-zinc-900">
+        <div className="wrapper mb-4 rounded-2xl bg-gray-50 dark:bg-zinc-900">
             <div className='px-4 py-2'>
                 <h2>What's happening</h2>
             </div>
