@@ -4,8 +4,14 @@ export default function SideBar({ children }) {
     const windowSize = useWindowSize();
 
     return windowSize.width < 1005 ? <></> : (
-        <div className="bg-red-500 mr-[10px] w-[290px] min-[1095px]:w-[350px]">
-            {children}
+        <div className="w-[290px] min-[1095px]:w-[350px]">
+            <div className="wrapper mr-[10px]">
+                {children}
+            </div>
+
+            <div>
+                2022 Twitter. Inc. 
+            </div>
         </div>
     );
 }
