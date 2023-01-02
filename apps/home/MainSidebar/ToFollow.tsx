@@ -14,7 +14,6 @@ export default function ToFollow() {
                         <Image
                         alt="profile picture"
                         src={profilePic}
-                        layout="fixed"
                         height={48}
                         width={48}
                         style={{borderRadius: '50%'}}
@@ -22,19 +21,21 @@ export default function ToFollow() {
                     </div>
                 </div>
 
-                <div className="wrapper flex-row">
-                    <div>
+                <div className="grow">
+                    <div className="wrapper flex-row justify-between">
                         <div>
-                            Scott Adam
+                            <div>
+                                Scott Adam
+                            </div>
+                            <div className="text-zinc-500 text-sm">
+                                @ScottAdams
+                            </div>
                         </div>
-                        <div className="text-zinc-500 text-sm">
-                            @ScottAdams
+                        <div className='ml-[12px] wrapper flex-row items-center content-center'>
+                            <button className='bg-zinc-900 dark:bg-slate-100 hover:bg-gray-800 dark:hover:bg-slate-50 text-white dark:text-zinc-900 font-bold py-1 px-4 rounded-3xl transition-all duration-200'>
+                                Follow
+                            </button>
                         </div>
-                    </div>
-                    <div className='ml-[12px] wrapper flex-row items-center content-center'>
-                        <button className='bg-zinc-900 dark:bg-slate-100 hover:bg-gray-800 dark:hover:bg-slate-50 text-white dark:text-zinc-900 font-bold py-1 px-4 rounded-3xl transition-all duration-200'>
-                            Follow
-                        </button>
                     </div>
                 </div>
             </div>
