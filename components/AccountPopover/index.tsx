@@ -1,22 +1,33 @@
 import React from "react";
 import Image from "next/image";
+import { Popover, PopoverProps } from "@mui/material";
 import FollowButton from "components/buttons/FollowButton";
 import profilePic from "public/imgs/profile-pic.png";
 
-type PropsType = {
-    accountInfo: any,
-    style: any,
-    others: any
+type AccountInfoType = {
+    name: string,
+    username: string,
 }
 
-const AccountToolTip = React.forwardRef((props: PropsType, ref) => {
-    const { accountInfo, style, others } = props;
+type AccountPopoverPropsType = {
+    accountInfo?: AccountInfoType,
+    popoverProps: PopoverProps,
+}
+
+export default function AccountPopover(props: AccountPopoverPropsType){
+    const popoverProps = {
+        ...props.popoverProps,
+        sx: { // (d) remove bg and color after dark mode is established.
+            '& .MuiPopover-paper': {
+                bgcolor: 'transparent',
+                color: '#fff',
+                boxShadow: '0 0 15px rgba(255,255,255,0.2)'
+            }
+        }
+    }
 
     return (
-        <div {...others} style={{
-            zIndex: 1000,
-            ...style
-        }}>
+        <Popover {...popoverProps}>
             <div className="wrapper w-[350px] min-h-[130px] px-4 py-2 rounded-2xl dark:bg-black shadow-[0_0_15px_rgba(255,255,255,0.2)]"> {/* (d) code: x-1 - replace px- classname with p- */}
                 <div className="py-1"> {/* (d) code: x-1 - remove padding y */}
                     <div className="flex flex-row justify-between">
@@ -37,10 +48,10 @@ const AccountToolTip = React.forwardRef((props: PropsType, ref) => {
 
                     <div className="wrapper pt-1">
                         <div className="font-bold text-lg">
-                            Scott Adam
+                            { props.accountInfo.name }
                         </div>
                         <div className="text-zinc-500 text-sm">
-                            @ScottAdams
+                            { props.accountInfo.username }
                         </div>
                     </div>
                 </div>
@@ -77,8 +88,6 @@ const AccountToolTip = React.forwardRef((props: PropsType, ref) => {
                     </a>
                 </div>
             </div>
-        </div>
+        </Popover>
     )
-})
-
-export default AccountToolTip
+}
