@@ -1,4 +1,4 @@
-import { PaletteOptions } from '@mui/material';
+import { PaletteOptions, ThemeOptions } from '@mui/material';
 
 const palette: PaletteOptions = {
     primary: {
@@ -22,3 +22,16 @@ export const darkPalette: PaletteOptions = {
         main: '#000',
     }
 }
+
+const defaultTheme: ThemeOptions = {
+    components: {
+        MuiButton: {
+            defaultProps: {
+                variant: 'contained',
+            }
+        }
+    },
+    palette: lightPalette,
+}
+
+export default defaultTheme;
