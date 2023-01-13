@@ -9,6 +9,8 @@ import MainSideBar from 'layouts/App/Main/SideBar';
 import MainWrapper from 'layouts/App/MainWrapper';
 import BottomBar from 'layouts/App/Layers/BottomBar';
 import HomeMainSidebar from 'apps/home/MainSidebar'
+import HeaderContent from 'apps/home/Header';
+
 
 export default function App() {
     const headerHeight = useRef(50);
@@ -39,7 +41,7 @@ export default function App() {
             </Layers>
             <MainWrapper>
                 <Header>
-                    
+                    <HeaderContent />
                 </Header>
                 <Main>
                     <MainContent>
