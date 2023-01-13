@@ -1,8 +1,15 @@
 import { PaletteMode } from "@mui/material";
 
-const changeMode = (payload: PaletteMode) => ({
+type ChangeModeType = {
     type: 'CHANGE_MODE',
-    payload
-})
+    payload: PaletteMode,
+}
+
+const changeMode = (payload: PaletteMode): ChangeModeType => {
+    return {
+        type: 'CHANGE_MODE',
+        payload
+    }
+}
 
 export default changeMode;

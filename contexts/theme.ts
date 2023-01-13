@@ -1,5 +1,6 @@
 import { createContext, Dispatch } from 'react';
 import { createTheme, Theme } from '@mui/material/styles';
+import { lightPalette, darkPalette } from 'themes';
 
 
 type ActionType = {
@@ -11,17 +12,19 @@ type ActionType = {
 }
 
 export const initTheme = createTheme({
-    // initial theme here
+    palette: lightPalette,
 });
 
-export const reducer = (state: Theme = initTheme, action: ActionType) => {
+export const reducer = (state: Theme = initTheme, action: ActionType): Theme => {
     switch (action.type) {
         case 'CHANGE_MODE':
             state = {...state};
-            state.palette.mode = action.payload;
-            return createTheme(state);
+            if(action.payload === 'dark'){
+                return createTheme({palette: darkPalette});
+            }
+            return createTheme({palette: lightPalette});
         default:
-            return createTheme(state);
+            return state;
     }
 }
 
