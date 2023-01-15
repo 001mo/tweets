@@ -11,9 +11,10 @@ const palette: PaletteOptions = {
 export const lightPalette: PaletteOptions = {
     mode: 'light',
     ...palette,
-    // text: {
-    //     primary: '#0f1419'
-    // },
+    text: {
+        primary: '#0f1419',
+        secondary: '#526471'
+    },
     background: {
         default: '#fff',
         paper: '#f7f9f9',
@@ -26,9 +27,10 @@ export const lightPalette: PaletteOptions = {
 export const darkPalette: PaletteOptions = {
     mode: 'dark',
     ...palette,
-    // text: {
-    //     primary: '#e7e9ea'
-    // },
+    text: {
+        primary: '#e7e9ea',
+        secondary: '#536471'
+    },
     background: {
         default: '#000',
         paper: '#16181c',
@@ -46,6 +48,11 @@ const defaultTheme: ThemeOptions = {
         MuiButton: {
             defaultProps: {
                 variant: 'contained',
+            }
+        },
+        MuiTypography: {
+            defaultProps: {
+                color: 'text.primary'
             }
         }
     },
