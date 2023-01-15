@@ -21,6 +21,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     setUserPrefMode();
   }, [userPrefMode])
 
+  const setBodyBgAsStyleProp = () => {
+    const bgColor = theme.palette.background.default;
+    document.body.style.backgroundColor = bgColor;
+  }
+
+  useEffect(() => {
+    setBodyBgAsStyleProp();
+  }, [theme])
+
   return (
       <ThemeContext.Provider value={{ state: theme, dispatch }}>
         <ThemeProvider theme={theme}>
