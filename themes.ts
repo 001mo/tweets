@@ -50,11 +50,6 @@ const defaultTheme: ThemeOptions = {
                 variant: 'contained',
             }
         },
-        MuiTypography: {
-            defaultProps: {
-                color: 'text.primary'
-            }
-        }
     },
     palette: lightPalette,
 }

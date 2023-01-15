@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import type { AppProps } from 'next/app'
-import { ThemeProvider, useMediaQuery } from '@mui/material'
+import { ThemeProvider, useMediaQuery, CssBaseline } from '@mui/material'
 import ThemeContext, { reducer, initTheme } from 'contexts/theme'
 import { changeMode } from 'actions/theme';
 
@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
       <ThemeContext.Provider value={{ state: theme, dispatch }}>
         <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
       </ThemeContext.Provider>
