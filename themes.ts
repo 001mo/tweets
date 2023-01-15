@@ -13,7 +13,7 @@ export const lightPalette: PaletteOptions = {
     ...palette,
     text: {
         primary: '#0f1419',
-        secondary: '#526471'
+        secondary: '#536471'
     },
     background: {
         default: '#fff',
