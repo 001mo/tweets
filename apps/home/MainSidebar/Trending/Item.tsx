@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
-import { SentimentDissatisfied } from '@mui/icons-material';
-import { MoreVert } from "@mui/icons-material";
+import { SentimentDissatisfied, MoreHoriz } from '@mui/icons-material';
+import { Wrapper, WrapperButton } from "components";
+import {
+    IconButton,
+    Menu,
+    MenuItem,
+    ListItemIcon,
+    ListItemText,
+    Box,
+    Typography
+} from "@mui/material";
 
 
 export default function Item({ trendData }) {
@@ -17,71 +25,66 @@ export default function Item({ trendData }) {
     }
 
     return (
-        <div className='wrapper px-4 py-3 transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)]'>
-            <button className='wrapper text-left'>
-                <div>
-                    <span className='text-secondary text-sm'>Trending</span>
-                </div>
-                <div>
-                    <span className='font-medium'>Andrew Tate</span>
-                </div>
-                <div>
-                    <span className='text-secondary text-sm'>39.8k Tweets</span>
-                </div>
+        <Wrapper>
+            <WrapperButton>
+                <Wrapper alignItems="flex-start">
+                    <div>
+                        <Typography fontSize={13} color="text.secondary">
+                            Trending
+                        </Typography>
+                    </div>
+                    <div>
+                        <Typography fontSize={15} fontWeight={700} color="text.primary">Andrew Tate</Typography>
+                    </div>
+                    <div>
+                        <Typography fontSize={13} color="text.secondary">
+                            39.8k Tweets
+                        </Typography>
+                    </div>
 
-                {/* ===== options button ======= */}
-                <div className='absolute top-[1px] right-0'>
-                    <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? 'long-menu' : undefined}
-                        aria-expanded={open ? 'true' : undefined}
-                        aria-haspopup="true"
-                        onClick={handleOptionsClick}
-                        className="p-0"
-                        style={{ padding: 0 }}
-                    >
-                        <MoreVert color="secondary" />
-                    </IconButton>
+                    {/* ===== options button ======= */}
+                    <Box sx={{
+                        position: 'absolute',
+                        top: 1,
+                        right: 0,
+                    }}>
+                        <IconButton
+                            aria-label="more"
+                            id="long-button"
+                            aria-controls={open ? 'long-menu' : undefined}
+                            aria-expanded={open ? 'true' : undefined}
+                            aria-haspopup="true"
+                            onClick={handleOptionsClick}
+                            sx={(theme) => ({ color: theme.palette.text.secondary, p: 0 })}
+                        >
+                            <MoreHoriz fontSize={'small'} />
+                        </IconButton>
 
-                    <Menu
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleOptionsClose}
-                        sx={{ // (d) change bg and colors after dark mode is established.
-                            '& .MuiPaper-root': {
-                                bgcolor: '#000',
-                                color: '#fff',
-                                borderRadius: '12px',
-                                boxShadow: 'rgb(255 255 255 / 20%) 0px 0px 15px, rgb(255 255 255 / 15%) 0px 0px 3px 1px'
-                            },
-                            '& .MuiMenuItem-root:hover': {
-                                bgcolor: 'rgb(255 255 255 / .03)',
-                            },
-                            '& .MuiListItemIcon-root': {
-                                color: '#fff'
-                            }
-                        }}
-                    >
-                        <MenuItem>
-                            <ListItemIcon><SentimentDissatisfied fontSize="small" /></ListItemIcon>
-                            <ListItemText>Not interested in this</ListItemText>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon><SentimentDissatisfied fontSize="small" /></ListItemIcon>
-                            <ListItemText>This trend is harmful or spammy</ListItemText>
-                        </MenuItem>
-                    </Menu>
-                </div>
-            </button>
-        </div>
+                        <Menu
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleOptionsClose}
+                        >
+                            <MenuItem>
+                                <ListItemIcon><SentimentDissatisfied fontSize="small" /></ListItemIcon>
+                                <ListItemText>Not interested in this</ListItemText>
+                            </MenuItem>
+                            <MenuItem>
+                                <ListItemIcon><SentimentDissatisfied fontSize="small" /></ListItemIcon>
+                                <ListItemText>This trend is harmful or spammy</ListItemText>
+                            </MenuItem>
+                        </Menu>
+                    </Box>
+                </Wrapper>
+            </WrapperButton>
+        </Wrapper>
     )
 }

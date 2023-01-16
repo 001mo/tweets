@@ -1,23 +1,39 @@
+import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Paper } from "components";
 import Item from "./Item";
 
 export default function Trending() {
+    const theme = useTheme();
+
     return (
-        <div className="wrapper mb-4 rounded-2xl bg-gray-50 dark:bg-zinc-900">
-            <div className='px-4 py-2'>
-                <h2>What's happening</h2>
-            </div>
+        <Paper sx={{ mb: 8 }}>
+            <Box sx={{ px: 8, py: 6 }}>
+                <Typography variant="h2" sx={{
+                    fontWeight: 800,
+                    fontSize: 20
+                }}>What's happening</Typography>
+            </Box>
 
             {Array(5).fill(0).map((x, i) => 
                 <Item key={`home-mainSidebar-trending-item-${i}`} trendData={{}} />
             )}
 
-            <div className='wrapper p-4 transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] rounded-b-2xl'>
-                <button className='wrapper text-left'>
-                    <div>
-                        <span className='text-brand'>Show more</span>
-                    </div>
-                </button>
-            </div>
-        </div>
+            <Button
+            variant="text"
+            sx={{
+                p: 8,
+                borderTopLeftRadius: 0,
+                borderBottomLeftRadius: 16,
+                borderBottomRightRadius: 16,
+                borderTopRightRadius: 0,
+                justifyContent: "flex-start",
+                textTransform: 'none',
+                '&:hover': {
+                    bgcolor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.03)'
+                }
+            }}>
+                Show more
+            </Button>
+        </Paper>
     );
 }
