@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Box, Button } from "@mui/material";
-import { Wrapper } from "components";
+import { Box } from "@mui/material";
+import { WrapperButton, Wrapper } from "components";
 import AccountPopover from "components/AccountPopover";
 import FollowButton from "components/buttons/FollowButton";
 import profilePic from "public/imgs/profile-pic.png";
@@ -26,13 +26,8 @@ export default function SuggestedUser({ userInfo }) { // (d) fix handleMouseOver
 
     return (
         <Wrapper>
-            {/* className='transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] */}
-            <Button variant="text" sx={{ borderRadius: 0 }}>
-                <Wrapper sx={{
-                    flexDirection: "row",
-                    px: 8,
-                    py: 6,
-                }}>
+            <WrapperButton>
+                <Wrapper sx={{ flexDirection: "row", alignItems: "center" }}>
                     <Wrapper sx={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -52,23 +47,30 @@ export default function SuggestedUser({ userInfo }) { // (d) fix handleMouseOver
                     <Wrapper sx={{ flexGrow: 1 }}>
                         <Wrapper sx={{
                             flexDirection: 'row',
-                            justifyContent: 'center'
+                            justifyContent: 'space-between'
                         }}>
                             <Wrapper>
-                                <a
+                                <Box
                                     onMouseOver={handleMouseEnter}
                                     // onMouseOut={handlePopoverClose}
-                                    className="word-wrap font-semibold text-lg"
-                                >
+                                    sx={{
+                                        wordWrap: 'break-word',
+                                        fontWeight: 700,
+                                        fontSize: 15,
+                                        lineHeight: 1.33,
+                                        color: 'text.primary',
+                                    }}>
                                     Scott Adam
-                                </a>
-                                <a
+                                </Box>
+                                <Box
                                     // onMouseOver={handleMouseEnter}
                                     // onMouseOut={handlePopoverClose}
-                                    className="text-zinc-500"
-                                >
+                                    sx={{
+                                        lineHeight: 1.33,
+                                        color: "text.secondary",
+                                    }}>
                                     @ScottAdams
-                                </a>
+                                </Box>
                             </Wrapper>
                             <Wrapper sx={{
                                 flexDirection: 'row',
@@ -81,7 +83,7 @@ export default function SuggestedUser({ userInfo }) { // (d) fix handleMouseOver
                         </Wrapper>
                     </Wrapper>
                 </Wrapper>
-            </Button>
+            </WrapperButton>
 
             <AccountPopover
                 accountInfo={{

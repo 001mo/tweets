@@ -11,6 +11,10 @@ const palette: PaletteOptions = {
 export const lightPalette: PaletteOptions = {
     mode: 'light',
     ...palette,
+    secondary: {
+        main: '#0f1419',
+        dark: '#22272b',
+    },
     text: {
         primary: '#0f1419',
         secondary: '#536471'
@@ -24,6 +28,10 @@ export const lightPalette: PaletteOptions = {
 export const darkPalette: PaletteOptions = {
     mode: 'dark',
     ...palette,
+    secondary: {
+        main: '#eff3f4',
+        dark: '#dee2e3',
+    },
     text: {
         primary: '#e7e9ea',
         secondary: '#536471'
@@ -75,6 +83,7 @@ const defaultTheme: ThemeOptions = {
         }
     },
     typography: {
+        fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
         fontSize: 15,
     },
     components: {
