@@ -1,11 +1,51 @@
+import { useContext } from "react";
+import { Wrapper } from "components";
+import { ThemeContext } from "contexts";
+import { useWindowSize } from "hooks";
+
+
 export default function App({ children }) {
+    const { state: theme } = useContext(ThemeContext);
+    const breakpoints = theme.breakpoints.values;
+    const { width: scWidth } = useWindowSize();
+
     return (
-        <main className="grow min-[500px]:max-[705px]:w-full min-[705px]:grow-2 shrink flex flex-col items-stretch min-[705px]:items-start">
-            <div className="wrapper min-[705px]:w-[600px] min-[1005px]:w-[920px] min-[1095px]:w-[990px] h-[10000px]"> {/* (d) remove h-[] classname */}
-                <div className="grow wrapper flex-row justify-between min-height-full">
+        <Wrapper
+            component="main"
+            sx={{
+                alignItems: {
+                    xs: 'stretch',
+                    sm3: 'flex-start'
+                },
+                flexGrow: {
+                    xs: 1,
+                    sm3: 2,
+                    md: 1,
+                },
+                flexShrink: 1,
+                width: (scWidth >= breakpoints.sm && scWidth < breakpoints.sm3) ? '100%' : undefined,
+            }}>
+            <Wrapper
+                sx={{
+                    flexGrow: 1,
+                    flexShrink: 1,
+                    width: {
+                        xs: '100%',
+                        sm3: 600,
+                        md: 920,
+                        md2: 990
+                    },
+                    height: 5000 // (d) remove height
+                }}>
+                <Wrapper sx={{
+                    flexDirection: 'row',
+                    flexGrow: 1,
+                    justifyContent: 'space-between',
+                    minHeight: '100%',
+                }}>
                     {children}
-                </div>
-            </div>
-        </main>
+                </Wrapper>
+            </Wrapper>
+        </Wrapper >
     )
 }

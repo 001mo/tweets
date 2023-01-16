@@ -1,7 +1,9 @@
+import { Wrapper } from "components";
+
 export default function MainWrapper({ children }) {
     return (
-        <div className="wrapper min-[500px]:flex-row h-full">
+        <Wrapper sx={{ flexDirection: { sm: 'row' }, height: '100%' }}>
             {children}
-        </div>
+        </Wrapper>
     )
 }

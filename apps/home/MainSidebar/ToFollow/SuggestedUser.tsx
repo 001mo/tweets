@@ -1,5 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { Box, Button } from "@mui/material";
+import { Wrapper } from "components";
 import AccountPopover from "components/AccountPopover";
 import FollowButton from "components/buttons/FollowButton";
 import profilePic from "public/imgs/profile-pic.png";
@@ -23,44 +25,63 @@ export default function SuggestedUser({ userInfo }) { // (d) fix handleMouseOver
     }
 
     return (
-        <div className="wrapper">
-            <button className='wrapper flex-row px-4 py-3 transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)]'>
-                <div className="wrapper flex-row items-center content-center">
-                    <div className='mr-[12px]'>
-                        <Image
-                            alt="profile picture"
-                            src={profilePic}
-                            height={48}
-                            width={48}
-                            style={{ borderRadius: '50%' }}
-                        />
-                    </div>
-                </div>
+        <Wrapper>
+            {/* className='transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] */}
+            <Button variant="text" sx={{ borderRadius: 0 }}>
+                <Wrapper sx={{
+                    flexDirection: "row",
+                    px: 8,
+                    py: 6,
+                }}>
+                    <Wrapper sx={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        <Box sx={{ mr: 6 }}>
+                            <Image
+                                alt="profile picture"
+                                src={profilePic}
+                                height={48}
+                                width={48}
+                                style={{ borderRadius: '50%' }}
+                            />
+                        </Box>
+                    </Wrapper>
 
-                <div className="grow">
-                    <div className="wrapper flex-row justify-between">
-                        <div className="wrapper">
-                            <a
-                                onMouseOver={handleMouseEnter}
-                                // onMouseOut={handlePopoverClose}
-                                className="word-wrap font-semibold text-lg"
-                            >
-                                Scott Adam
-                            </a>
-                            <a
-                                // onMouseOver={handleMouseEnter}
-                                // onMouseOut={handlePopoverClose}
-                                className="text-zinc-500"
-                            >
-                                @ScottAdams
-                            </a>
-                        </div>
-                        <div className='ml-[12px] wrapper flex-row items-center content-center'>
-                            <FollowButton />
-                        </div>
-                    </div>
-                </div>
-            </button>
+                    <Wrapper sx={{ flexGrow: 1 }}>
+                        <Wrapper sx={{
+                            flexDirection: 'row',
+                            justifyContent: 'center'
+                        }}>
+                            <Wrapper>
+                                <a
+                                    onMouseOver={handleMouseEnter}
+                                    // onMouseOut={handlePopoverClose}
+                                    className="word-wrap font-semibold text-lg"
+                                >
+                                    Scott Adam
+                                </a>
+                                <a
+                                    // onMouseOver={handleMouseEnter}
+                                    // onMouseOut={handlePopoverClose}
+                                    className="text-zinc-500"
+                                >
+                                    @ScottAdams
+                                </a>
+                            </Wrapper>
+                            <Wrapper sx={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                ml: 6,
+                            }}>
+                                <FollowButton />
+                            </Wrapper>
+                        </Wrapper>
+                    </Wrapper>
+                </Wrapper>
+            </Button>
 
             <AccountPopover
                 accountInfo={{
@@ -82,6 +103,6 @@ export default function SuggestedUser({ userInfo }) { // (d) fix handleMouseOver
                     disableRestoreFocus: true,
                 }}
             />
-        </div>
+        </Wrapper>
     )
 }

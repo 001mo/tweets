@@ -1,6 +1,6 @@
 export default function App({ children }) {
     return (
-        <div className="bg-white dark:bg-black">
+        <div>
             {children}
         </div>
     )

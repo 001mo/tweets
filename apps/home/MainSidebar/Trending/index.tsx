@@ -7,8 +7,8 @@ export default function Trending() {
                 <h2>What's happening</h2>
             </div>
 
-            {Array(5).fill(0).map(() => 
-                <Item trendData={{}} />
+            {Array(5).fill(0).map((x, i) => 
+                <Item key={`home-mainSidebar-trending-item-${i}`} trendData={{}} />
             )}
 
             <div className='wrapper p-4 transition-all duration-200 hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] rounded-b-2xl'>
