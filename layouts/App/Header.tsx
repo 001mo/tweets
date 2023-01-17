@@ -15,10 +15,7 @@ export default function Header({ children }) {
             flexShrink: { sm: 0 },
             alignItems: "flex-end",
         }}>
-            {windowSize.width < 500 ?
-                // works as a placeholder for absolute element "header" that's render under 500px 
-                <Box sx={{ height: 53 }}></Box>
-            :
+            {windowSize.width >= 500 ?
                 <Wrapper sx={{  width: _width }}>
                     <Box sx={{
                         position: 'fixed',
@@ -36,7 +33,7 @@ export default function Header({ children }) {
                         </Wrapper>
                     </Box>
                 </Wrapper>
-            }
+            : <></> }
         </Wrapper>
     )
 }
