@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
-import { Restore, Favorite, LocationOn } from "@mui/icons-material";
+import { HomeRounded, Search, NotificationsNoneOutlined, EmailOutlined } from "@mui/icons-material";
 
 export default function NavBar() {
     const [value, setValue] = useState(0);
@@ -13,16 +13,20 @@ export default function NavBar() {
             }}
         >
             <BottomNavigationAction
-                label="Recents"
-                icon={<Restore />}
+                label="Home"
+                icon={<HomeRounded />}
             />
             <BottomNavigationAction
-                label="Favorites"
-                icon={<Favorite />}
+                label="Search"
+                icon={<Search />}
             />
             <BottomNavigationAction
-                label="Nearby"
-                icon={<LocationOn />}
+                label="Notifications"
+                icon={<NotificationsNoneOutlined />}
+            />
+            <BottomNavigationAction
+                label="Messages"
+                icon={<EmailOutlined />}
             />
         </BottomNavigation>
     )
