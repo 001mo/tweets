@@ -19,7 +19,7 @@ export default function HeaderWrapper({ children }) {
         <>
             <Box sx={{ height: childrenHeight }}/>
 
-            <Box sx={{ position: 'fixed', top: 0, left: 0, right: 0 }}>
+            <Box sx={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
                 <div ref={wrapperRef}>
                     { children }
                 </div>
