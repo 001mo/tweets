@@ -2,8 +2,12 @@ import { Wrapper } from "components";
 import Image from "next/image";
 import { Twitter } from '@mui/icons-material';
 import profilePic from "public/imgs/profile-pic.png";
+import { useContext } from "react";
+import SidebarAppearanceContext from "./SidebarAppearanceContext";
+import { IconButton } from "@mui/material";
 
 export default function UpperRow() {
+    const { show: showSidebar, setShow: setShowSidebar } = useContext(SidebarAppearanceContext);
 
     return (
         <Wrapper sx={{
@@ -20,13 +24,15 @@ export default function UpperRow() {
                 flexShrink: 1,
                 flexBasis: '50%'
             }}>
-                <Image
-                    alt="profile picture"
-                    src={profilePic}
-                    height={32}
-                    width={32}
-                    style={{ borderRadius: '50%' }}
-                />
+                <IconButton onClick={() => setShowSidebar(!showSidebar)}>
+                    <Image
+                        alt="profile picture"
+                        src={profilePic}
+                        height={32}
+                        width={32}
+                        style={{ borderRadius: '50%' }}
+                    />
+                </IconButton>
             </Wrapper>
 
             <Wrapper sx={{
