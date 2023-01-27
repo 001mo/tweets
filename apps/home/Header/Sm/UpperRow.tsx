@@ -24,7 +24,7 @@ export default function UpperRow() {
                 flexShrink: 1,
                 flexBasis: '50%'
             }}>
-                <IconButton onClick={() => setShowSidebar(!showSidebar)}>
+                <IconButton sx={{ p: 0 }} onClick={() => setShowSidebar(!showSidebar)}>
                     <Image
                         alt="profile picture"
                         src={profilePic}

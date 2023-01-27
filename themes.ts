@@ -34,7 +34,7 @@ export const darkPalette: PaletteOptions = {
     },
     text: {
         primary: '#e7e9ea',
-        secondary: '#536471'
+        secondary: '#71767b'
     },
     background: {
         default: '#000',
@@ -84,7 +84,6 @@ const defaultTheme: ThemeOptions = {
     },
     typography: {
         fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-        fontSize: 15,
     },
     components: {
         MuiButton: {
