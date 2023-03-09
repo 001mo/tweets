@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useContext } from "react";
-import { Drawer, IconButton, Typography, useTheme } from "@mui/material";
+import { Drawer, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import { Add, Close } from "@mui/icons-material";
 import SidebarAppearanceContext from "../SidebarAppearanceContext";
 import { Wrapper } from "components";
+import Accordions from "./Accordions";
 import profilePic from "public/imgs/profile-pic.png";
 
 
@@ -29,8 +30,9 @@ export default function SideBar() {
                 }
             }}
         >
+            {/* ============ account info section =========== */}
             <Wrapper>
-                {/* ============ heading =========== */}
+                {/* === heading === */}
                 <Wrapper>
                     <Wrapper sx={{
                         flexDirection: 'row',
@@ -50,7 +52,7 @@ export default function SideBar() {
                     </Wrapper>
                 </Wrapper>
 
-                {/* ============ account info =========== */}
+                {/* === info === */}
                 <Wrapper sx={{
                     overflowY: 'auto',
                     flexGrow: 1,
@@ -93,6 +95,11 @@ export default function SideBar() {
                     </Wrapper>
                 </Wrapper>
             </Wrapper>
+
+            <Divider/>
+
+            {/* ============ Accordions section =========== */}
+            <Accordions />
         </Drawer>
     )
 }
