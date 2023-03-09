@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { useContext } from "react";
-import { Drawer, Divider, IconButton, Typography, useTheme } from "@mui/material";
-import { Add, Close } from "@mui/icons-material";
+import { Drawer, Divider, IconButton, Typography, useTheme, Button } from "@mui/material";
+import { Add, Close, PersonOutlineOutlined } from "@mui/icons-material";
 import SidebarAppearanceContext from "../SidebarAppearanceContext";
 import { Wrapper } from "components";
 import Accordions from "./Accordions";
+import UpperSection from "./UpperSection";
 import profilePic from "public/imgs/profile-pic.png";
 
 
@@ -95,6 +96,8 @@ export default function SideBar() {
                     </Wrapper>
                 </Wrapper>
             </Wrapper>
+
+            <UpperSection />
 
             <Divider/>
 
