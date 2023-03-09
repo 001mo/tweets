@@ -9,7 +9,7 @@ export default function SettingsAndSupport() {
     return (
         <Accordion>
             <AccordionSummary>
-                <Typography fontWeight={600}>Settings and Support</Typography>
+                <Typography fontWeight={600}>Professional Tools</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ p: 0 }}>
                 <AccordionItem href="https://analytics.twitter.com/about" IconComponent={RocketLaunchRounded}>
